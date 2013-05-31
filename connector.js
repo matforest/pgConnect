@@ -1,5 +1,5 @@
 var pg = require('pg');
-var conString = "postgres://munt:pass@localhost:5432/geodata";
+var conString = "postgres://gis:mypassword@192.168.128.61:5432/tesseract2";
 
 var client = new pg.Client(conString);
 console.log('connecting');
@@ -15,7 +15,7 @@ function afterConnect(err) {
 	}
 
 	console.log('querying');
-	var query = client.query("SELECT * FROM testing.temp;");
+	var query = client.query("SELECT * FROM playgrounds;");
 	console.log('query done');
 
 	query.on('row', function(row) {
